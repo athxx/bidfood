@@ -8,10 +8,10 @@ import (
 	"os/signal"
 	"syscall"
 
-	pb "bidone/bidrpc/bidrpcproto"
-	"bidone/bidrpc/internal/biz"
-	"bidone/bidrpc/internal/data"
-	"bidone/bidrpc/internal/service"
+	pb "github.com/athxx/bidfood/bidrpc/bidrpcproto"
+	"github.com/athxx/bidfood/bidrpc/internal/biz"
+	"github.com/athxx/bidfood/bidrpc/internal/data"
+	"github.com/athxx/bidfood/bidrpc/internal/service"
 
 	"google.golang.org/grpc"
 )

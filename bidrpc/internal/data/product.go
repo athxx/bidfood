@@ -8,7 +8,7 @@ import (
 	"strings"
 	"sync"
 
-	"bidone/bidrpc/internal/biz"
+	"github.com/athxx/bidfood/bidrpc/internal/biz"
 )
 
 // ProductData implements ProductRepo using in-memory storage

@@ -1,4 +1,4 @@
-module bidone
+module github.com/athxx/bidfood
 
 go 1.24.1
 

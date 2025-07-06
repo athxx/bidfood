@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"time"
 
-	"bidone/bidapi/internal/rpc"
-	pb "bidone/bidrpc/bidrpcproto"
+	"github.com/athxx/bidfood/bidapi/internal/rpc"
+	pb "github.com/athxx/bidfood/bidrpc/bidrpcproto"
 
 	chi "github.com/go-chi/chi/v5"
 )

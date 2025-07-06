@@ -10,8 +10,8 @@ import (
 	"syscall"
 	"time"
 
-	"bidone/bidapi/internal/hdl"
-	"bidone/bidapi/internal/rpc"
+	"github.com/athxx/bidfood/bidapi/internal/hdl"
+	"github.com/athxx/bidfood/bidapi/internal/rpc"
 
 	chi "github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"

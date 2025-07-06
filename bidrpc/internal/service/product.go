@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 
-	pb "bidone/bidrpc/bidrpcproto"
-	"bidone/bidrpc/internal/biz"
+	pb "github.com/athxx/bidfood/bidrpc/bidrpcproto"
+	"github.com/athxx/bidfood/bidrpc/internal/biz"
 )
 
 // ProductService implements the gRPC ProductService

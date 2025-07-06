@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	"bidone/bidapi/internal/hdl"
-	"bidone/bidapi/internal/rpc"
+	"github.com/athxx/bidfood/bidapi/internal/hdl"
+	"github.com/athxx/bidfood/bidapi/internal/rpc"
 
 	"github.com/go-chi/chi/v5"
 )

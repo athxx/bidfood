@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"bidone/bidrpc/internal/biz"
+	"github.com/athxx/bidfood/bidrpc/internal/biz"
 )
 
 func newTestProduct(id string) *biz.Product {

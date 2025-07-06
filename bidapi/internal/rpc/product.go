@@ -1,7 +1,7 @@
 package rpc
 
 import (
-	pb "bidone/bidrpc/bidrpcproto"
+	pb "github.com/athxx/bidfood/bidrpc/bidrpcproto"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"

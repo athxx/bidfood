@@ -1,0 +1,42 @@
+# HOW TO USE THIS FILE
+# 1. Install the `REST Client` extension in VS Code.
+# 2. Open this file in VS Code.
+# 3. Click on the "Send Request" link above each request to execute it.
+
+
+@baseUrl = http://localhost:8080
+@id = 263fe311-60de-48b7-a91a-61a181564912
+
+
+### Get By ID
+GET  {{baseUrl}}/products/{{id}}
+
+### Get All
+GET  {{baseUrl}}/products
+
+### Get Page
+GET  {{baseUrl}}/products?page=1&page_size=10&name_filter=iPhone
+
+
+### Create Product
+POST  {{baseUrl}}/products
+content-type: application/json
+
+{
+  "name": "iPhone 16 Pro",
+  "description": "test -------------",
+  "price": 999.99,
+  "quantity": 50
+}
+
+### Update Product
+PUT  {{baseUrl}}/products/{{id}}
+content-type: application/json
+
+{
+  "price": 1,
+  "quantity": 100
+}
+
+### Delete Product
+DELETE  {{baseUrl}}/products/{{id}}

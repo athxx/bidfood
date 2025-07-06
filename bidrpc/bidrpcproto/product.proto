@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package bidrpcproto;
 
-option go_package = "bidone/bidrpc/bidrpcproto;bidrpcproto";
+option go_package = "github.com/athxx/bidfood/bidrpc/bidrpcproto;bidrpcproto";
 
 // Product represents a product in the inventory
 message Product {
