@@ -260,11 +260,11 @@ While Gin, Echo, Fiber, and Chi are excellent web frameworks, they are **not ide
 
 ---
 
-## Recommendation : Go-Kratos
+## Recommendation : Go-Kratos or Go-Micro
 
 - **gRPC‑First & Full‑Stack Support**: Designed around Protobuf/gRPC, Kratos offers built‑in service discovery, load‑balancing, circuit-breaking, tracing, metrics (Prometheus), logging, recovery, and config management.
 - **Opinionated, Modular Structure**: Comes with a consistent project layout and modular architecture—transport, middleware, registry, config—making it easy to maintain and standardize across teams.
 - **Robust Tooling & Code Generation**: Includes CLI tools for generating service skeletons, cache layers, validation, Swagger/OpenAPI docs, error enums, and gRPC code—cutting setup time significantly.
-- **Production-Proven at Scale**: Backed by Bilibili's usage in production, and enjoys strong community activity and adoption.
+- **Production-Proven at Scale**: Usage in production, and enjoys strong community activity and adoption.
 - **High Observability & Resilience by Default**: Integrates Prometheus and OpenTelemetry by default; resilience patterns (retry, circuit-breaker, panic recovery) are baked into the framework.
 - **Well-Maintained & Actively Developed**: Actively updated with frequent commits and releases, ensuring long-term viability.

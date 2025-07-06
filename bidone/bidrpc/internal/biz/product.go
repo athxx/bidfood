@@ -3,6 +3,7 @@ package biz
 import (
 	"context"
 	"errors"
+	"log/slog"
 	"sync"
 	"time"
 
@@ -49,6 +50,7 @@ func NewProductUseCase(repo ProductRepo) *ProductUseCase {
 
 // CreateProduct creates a new product
 func (uc *ProductUseCase) CreateProduct(ctx context.Context, name, description string, price float64, quantity int32) (*Product, error) {
+	slog.Info("Creating product", "name", name, "description", description, "price", price, "quantity", quantity)
 	if name == "" {
 		return nil, ErrInvalidInput
 	}
@@ -78,6 +80,7 @@ func (uc *ProductUseCase) CreateProduct(ctx context.Context, name, description s
 
 // GetProduct retrieves a product by ID
 func (uc *ProductUseCase) GetProduct(ctx context.Context, id string) (*Product, error) {
+	slog.Info("Getting product", "id", id)
 	if id == "" {
 		return nil, ErrInvalidInput
 	}
@@ -87,6 +90,7 @@ func (uc *ProductUseCase) GetProduct(ctx context.Context, id string) (*Product, 
 
 // ListProducts retrieves all products with pagination and filtering
 func (uc *ProductUseCase) ListProducts(ctx context.Context, page, pageSize int32, nameFilter string) ([]*Product, int32, error) {
+	slog.Info("Listing products", "page", page, "pageSize", pageSize, "nameFilter", nameFilter)
 	if page <= 0 {
 		page = 1
 	}
@@ -102,6 +106,7 @@ func (uc *ProductUseCase) ListProducts(ctx context.Context, page, pageSize int32
 
 // UpdateProduct updates an existing product
 func (uc *ProductUseCase) UpdateProduct(ctx context.Context, id, name, description string, price float64, quantity int32) (*Product, error) {
+	slog.Info("Updating product", "id", id, "name", name, "description", description, "price", price, "quantity", quantity)
 	if id == "" {
 		return nil, ErrInvalidInput
 	}
@@ -134,6 +139,7 @@ func (uc *ProductUseCase) UpdateProduct(ctx context.Context, id, name, descripti
 
 // DeleteProduct deletes a product by ID
 func (uc *ProductUseCase) DeleteProduct(ctx context.Context, id string) error {
+	slog.Info("Deleting product", "id", id)
 	if id == "" {
 		return ErrInvalidInput
 	}

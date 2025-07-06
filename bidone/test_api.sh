@@ -15,16 +15,16 @@ echo -e "\n=== CreateProduct ==="
 curl 'http://localhost:8080/products' \
   -X POST \
   -H 'content-type: application/json' \
-  -d $'{\n  "name": "iPhone 15 Pro",\n  "description": "Latest iPhone with advanced camera system",\n  "price": 999.99,\n  "quantity": 50\n}'
+  -d $'{"name": "iPhone 15 Pro","description": "Latest iPhone with advanced camera system","price": 999.99,"quantity": 50}'
 
 echo -e "\n=== Get Single Product ==="
-curl 'http://localhost:8080/products/6584f023-9cfd-4fe0-b613-2b2ecf00fa4c'
+curl "http://localhost:8080/products/$ID"
 
 echo -e "\n=== UpdateProduct  ==="
-curl 'http://localhost:8080/products/'$ID \
+curl "http://localhost:8080/products/$ID" \
 -X POST \
 -H 'content-type: application/json' \
 -d '{"price": 100}'
 
 echo -e "\n=== DeleteProduct  ==="
-curl -X DELETE 'http://localhost:8080/products/6584f023-9cfd-4fe0-b613-2b2ecf00fa4c' \
+curl -X DELETE "http://localhost:8080/products/$ID" \

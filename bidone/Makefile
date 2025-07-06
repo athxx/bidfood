@@ -1,8 +1,8 @@
 # Product Inventory Management System Makefile
 
 # Variables
-BIDRPC_DIR = bidrpc
 BIDAPI_DIR = bidapi
+BIDRPC_DIR = bidrpc
 PROTO_DIR = bidrpc/bidrpcproto
 GO_MODULE = bidfood
 
@@ -28,7 +28,7 @@ api:
 	cd $(BIDAPI_DIR) && go run ./...
 
 .PHONY: rpc
-api:
+rpc:
 	cd $(BIDRPC_DIR) && go run ./...
 
 .PHONY: proto
