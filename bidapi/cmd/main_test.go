@@ -15,6 +15,7 @@ import (
 )
 
 var r = NewTestRouter()
+var prodID = `82deb197-34e4-4e28-add3-560a81da47cb`
 
 // mock  router returns a http.Handler for testing
 func NewTestRouter() http.Handler {
@@ -28,6 +29,10 @@ func NewTestRouter() http.Handler {
 	r.Get("/products/{id}", hdl.GetProduct)
 	r.Put("/products/{id}", hdl.UpdateProduct)
 	r.Delete("/products/{id}", hdl.DeleteProduct)
+	r.Get("/health", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("OK"))
+	})
 	return r
 }
 
@@ -113,13 +118,13 @@ func TestGetProduct(t *testing.T) {
 	ts := httptest.NewServer(r)
 	defer ts.Close()
 
-	resp, err := http.Get(ts.URL + "/products/99999")
+	resp, err := http.Get(ts.URL + "/products/" + prodID)
 	if err != nil {
-		t.Fatalf("GET /products/99999 failed: %v", err)
+		t.Fatalf("GET /products/%s failed: %v", prodID, err)
 	}
 	defer resp.Body.Close()
 	if resp.StatusCode != http.StatusOK {
-		t.Errorf("Expected 404 for not found, got %d", resp.StatusCode)
+		t.Errorf("Expected 200=, got %d", resp.StatusCode)
 	}
 }
 
@@ -127,15 +132,15 @@ func TestUpdateProduct(t *testing.T) {
 	ts := httptest.NewServer(r)
 	defer ts.Close()
 
-	req, _ := http.NewRequest("PUT", ts.URL+"/products/99999", strings.NewReader(`{"name":"Updated"}`))
+	req, _ := http.NewRequest("PUT", ts.URL+"/products/"+prodID, strings.NewReader(`{"name":"Updated"}`))
 	req.Header.Set("Content-Type", "application/json")
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
-		t.Fatalf("PUT /products/99999 failed: %v", err)
+		t.Fatalf("PUT /products/%s failed: %v", prodID, err)
 	}
 	defer resp.Body.Close()
 	if resp.StatusCode != http.StatusOK {
-		t.Errorf("Expected 404 for update not found, got %d", resp.StatusCode)
+		t.Errorf("Expected 200 for update, got %d", resp.StatusCode)
 	}
 }
 
@@ -143,13 +148,13 @@ func TestDeleteProduct(t *testing.T) {
 	ts := httptest.NewServer(r)
 	defer ts.Close()
 
-	req, _ := http.NewRequest("DELETE", ts.URL+"/products/99999", nil)
+	req, _ := http.NewRequest("DELETE", ts.URL+"/products/"+prodID, nil)
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
-		t.Fatalf("DELETE /products/99999 failed: %v", err)
+		t.Fatalf("DELETE /products/%s failed: %v", prodID, err)
 	}
 	defer resp.Body.Close()
 	if resp.StatusCode != http.StatusOK {
-		t.Errorf("Expected 404 for delete not found, got %d", resp.StatusCode)
+		t.Errorf("Expected 200 for delete, got %d", resp.StatusCode)
 	}
 }
