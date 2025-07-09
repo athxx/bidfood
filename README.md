@@ -101,6 +101,14 @@ Here, I’ve tried to minimize the use of external libraries to demonstrate a ba
 
 **please run both api gateway and rpc at the same time, you need to run them in separate terminals.**
 
+### Run in Windows
+
+blow command are for Linux or macOS, if you using `Windows` os, please see this document :
+
+## [Run-in-Windows.md](Run-in-Windows.md)
+
+---
+
 ### Run api gateway
 
 ```bash

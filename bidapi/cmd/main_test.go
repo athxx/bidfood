@@ -28,10 +28,6 @@ func NewTestRouter() http.Handler {
 	r.Get("/products/{id}", hdl.GetProduct)
 	r.Put("/products/{id}", hdl.UpdateProduct)
 	r.Delete("/products/{id}", hdl.DeleteProduct)
-	r.Get("/health", func(w http.ResponseWriter, r *http.Request) {
-		w.WriteHeader(http.StatusOK)
-		w.Write([]byte("OK"))
-	}).Methods("GET")
 	return r
 }
 
